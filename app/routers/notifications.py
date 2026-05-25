@@ -37,7 +37,7 @@ def history(user_id: int, db: Session = Depends(get_db)):
 @router.get("/users/{user_id}/stream")
 async def stream(user_id: int):
     """SSE-поток уведомлений для пользователя. Открыть в браузере/curl:
-    curl -N localhost:8003/users/1/stream"""
+    curl -N localhost:8000/users/1/stream"""
     queue = hub.subscribe(user_id)
 
     async def event_generator():
